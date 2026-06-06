@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>French Anki Analyzer｜法語詞彙分析器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">French → Chinese Anki Builder</p>
+      <h1>法語詞彙分析器</h1>
+      <p class="subtitle">貼上 Podcast、字幕、新聞或文章，自動擷取 B1+ / B2 / C1 / C2 值得加入 Anki 的單字、片語與固定搭配。</p>
+    </div>
+    <div class="hero-card">
+      <span class="badge">Anki Mode</span>
+      <strong>保留高價值詞彙</strong>
+      <small>自動過濾 A1/A2 基礎字、數字、月份、顏色與功能詞。</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel input-panel">
+      <div class="section-title">
+        <h2>輸入文本</h2>
+        <button id="sampleBtn" class="ghost">載入範例</button>
+      </div>
+      <textarea id="sourceText" placeholder="貼上法文文章、Podcast逐字稿、Instagram字幕、新聞、小說或論壇留言…"></textarea>
+      <div class="controls">
+        <label>
+          最低級別
+          <select id="levelFilter">
+            <option value="B1">B1+</option>
+            <option value="B2" selected>B2+</option>
+            <option value="C1">C1+</option>
+            <option value="C2">C2 only</option>
+          </select>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="phraseOnly" /> 只看片語／搭配
+        </label>
+        <button id="analyzeBtn" class="primary">開始分析</button>
+      </div>
+      <p class="hint">此版本內建常見 B1-C2 詞庫與片語規則。若要大量精準翻譯，可再接 OpenAI API。</p>
+    </section>
+
+    <section class="panel stats-panel">
+      <h2>分析摘要</h2>
+      <div class="stats">
+        <div><strong id="totalCount">0</strong><span>候選詞</span></div>
+        <div><strong id="ankiCount">0</strong><span>值得背</span></div>
+        <div><strong id="phraseCount">0</strong><span>片語搭配</span></div>
+      </div>
+      <div class="actions">
+        <button id="exportBtn" class="secondary">匯出 Anki TSV</button>
+        <button id="copyBtn" class="secondary">複製 TSV</button>
+      </div>
+    </section>
+
+    <section class="panel result-panel">
+      <div class="section-title">
+        <h2>值得加入 Anki</h2>
+        <input id="searchBox" type="search" placeholder="搜尋單字／中文意思…" />
+      </div>
+      <div id="results" class="cards empty">請先貼上文本並按「開始分析」。</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made for French B2/C1 learners · Local static version</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
